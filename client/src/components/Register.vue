@@ -28,12 +28,10 @@ export default {
   },
   methods: {
     async register () {
-      console.log('requesting...')
       var response = await AuthenticationService.register({
         email: this.email,
         password: this.password
       })
-      console.log(response)
     }
   }
 }
