@@ -12,6 +12,7 @@
         type="password"
         name="password"
         placeholder="password">
+      <div class="error" v-html="error" />
       <button type="submit"> Register </button>
     </form>
   </div>
@@ -22,21 +23,28 @@ import AuthenticationService from '@/services/AuthenticationService'
 export default {
   data () {
     return {
-      email:'123',
-      password: 'watchme'
+      email: '',
+      password: '',
+      error: null
     }
   },
   methods: {
     async register () {
-      var response = await AuthenticationService.register({
-        email: this.email,
-        password: this.password
-      })
+      try {
+        await AuthenticationService.register({
+          email: this.email,
+          password: this.password
+        })
+      } catch (error) {
+        this.error = error.response.data.error
+      }
     }
   }
 }
 </script>
 
 <style scoped>
-
+.error {
+  color: red;
+}
 </style>
