@@ -11,10 +11,13 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "bcrypt-nodejs": "0.0.3",
+    "bluebird": "^3.5.1",
     "body-parser": "^1.18.2",
     "cors": "^2.8.4",
     "express": "^4.16.3",
     "joi": "^13.2.0",
+    "jsonwebtoken": "^8.2.1",
     "morgan": "^1.9.0",
     "sequelize": "^4.37.6",
     "sequelize-cli": "^4.0.0",

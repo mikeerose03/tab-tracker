@@ -4,7 +4,10 @@
     "password": "tabtracker",
     "database": "tabtracker",
     "host": "localhost",
-    "dialect": "sqlite"
+    "dialect": "sqlite",
+    "authentication": {
+      "jwtSecret": "secret"
+    }
   },
   "test": {
     "username": "tabtracker",
