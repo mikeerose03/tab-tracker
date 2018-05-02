@@ -1,35 +1,29 @@
 <template>
   <v-layout align-center justify-center>
     <v-flex xs12 sm8 md6>
-      <v-card class="elevation-12">
-        <v-toolbar flat dense class="cyan" dark>
-          <v-toolbar-title>Login</v-toolbar-title>
-        </v-toolbar>
-        <v-card-text>
-          <v-form>
-            <v-text-field
-              name="email"
-              label="Email"
-              type="email"
-              v-model="email" required></v-text-field>
-            <v-text-field
-              name="password"
-              label="Password"
-              type="password"
-              v-model="password" required></v-text-field>
-          </v-form>
+      <panel title="Login">
+        <v-form @submit.prevent="login">
+          <v-text-field
+            name="email"
+            label="Email"
+            type="email"
+            v-model="email" required></v-text-field>
+          <v-text-field
+            name="password"
+            label="Password"
+            type="password"
+            v-model="password" required></v-text-field>
           <div class="error-tx" v-html="error" />
-        </v-card-text>
-        <v-card-actions>
-          <v-btn class="cyan" @click="login" dark>Submit</v-btn>
-        </v-card-actions>
-      </v-card>
+          <v-btn class="cyan" type="submit" dark>Submit</v-btn>
+        </v-form>
+      </panel>
     </v-flex>
   </v-layout>
 </template>
 
 <script>
 import AuthenticationService from '@/services/AuthenticationService'
+import Panel from '@/components/Panel'
 export default {
   data () {
     return {
@@ -37,6 +31,9 @@ export default {
       password: '',
       error: null
     }
+  },
+  components: {
+    Panel
   },
   methods: {
     async login () {

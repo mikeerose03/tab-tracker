@@ -1,15 +1,17 @@
 <template>
   <v-toolbar fixed class="cyan" dark>
     <v-toolbar-title class="mr-4">
-      <router-link to="root" tag="v-btn" class="btn btn--flat theme--dark">
+      <router-link to="root" class="btn btn--flat theme--dark">
         TabTracker
       </router-link>
     </v-toolbar-title>
-    <!-- TODO -->
-<!-- <v-toolbar-items>
-      <v-btn flat dark>
+  <!--   <v-toolbar-items>
+      <router-link
+        :to="songs"
+        tag="v-btn"
+        class="btn btn--flat theme--dark">
         Browse
-      </v-btn>
+      </router-link>
     </v-toolbar-items> -->
 
     <v-spacer></v-spacer>
@@ -29,12 +31,23 @@
         v-if="!$store.state.isUserLoggedIn">
         Sign Up
       </router-link>
+      <v-btn
+        v-if="$store.state.isUserLoggedIn"
+        @click="logout" flat dark>Logout</v-btn>
     </v-toolbar-items>
   </v-toolbar>
 </template>
 
 <script>
-  export default {}
+export default {
+  methods: {
+    logout () {
+      this.$store.dispatch('setToken', null)
+      this.$store.dispatch('setUser', null)
+      this.$router.push({ name: 'login' })
+    }
+  }
+}
 </script>
 
 <style scoped></style>

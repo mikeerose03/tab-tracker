@@ -13,6 +13,7 @@ export default new Vuex.Store({
   mutations: {
     setToken (state, token) {
       state.token = token
+      console.log('setting token', token)
       if (token) {
         state.isUserLoggedIn = true
       } else {
