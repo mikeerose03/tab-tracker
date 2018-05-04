@@ -17,9 +17,6 @@
           v-for="song in songs"
           :key="song.id"
           class="song">
-          <!-- {{song.title}} -
-          {{song.artist}} -
-          {{song.album}} -->
           <v-layout>
             <v-flex xs6>
               <div class="song-title">{{song.title}}</div>

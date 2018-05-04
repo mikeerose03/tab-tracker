@@ -1,31 +1,30 @@
 <template>
   <v-toolbar fixed class="cyan" dark>
     <v-toolbar-title class="mr-4">
-      <router-link to="root" class="btn btn--flat theme--dark">
+      <router-link to="/root" class="btn btn--flat theme--dark">
         TabTracker
       </router-link>
     </v-toolbar-title>
-  <!--   <v-toolbar-items>
-      <router-link
-        :to="songs"
-        tag="v-btn"
+    <v-toolbar-items>
+      <v-btn
+        to="/songs"
         class="btn btn--flat theme--dark">
         Browse
-      </router-link>
-    </v-toolbar-items> -->
+      </v-btn>
+    </v-toolbar-items>
 
     <v-spacer></v-spacer>
 
     <v-toolbar-items>
       <router-link
-        to="login"
+        to="/login"
         tag="v-btn"
         class="btn btn--flat theme--dark"
         v-if="!$store.state.isUserLoggedIn">
         Login
       </router-link>
       <router-link
-        to="register"
+        to="/register"
         tag="v-btn"
         class="btn btn--flat theme--dark"
         v-if="!$store.state.isUserLoggedIn">

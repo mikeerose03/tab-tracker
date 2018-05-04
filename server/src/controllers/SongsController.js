@@ -22,5 +22,30 @@ module.exports = {
         error: 'Something went wrong while adding song'
       })
     }
+  },
+  async show (req, res) {
+    try {
+      const song = await Song.findById(req.params.songId)
+      res.send(song)
+    } catch (error) {
+      console.log(error)
+      res.status(500).send({
+        error: 'Something went wrong while fetching song'
+      })
+    }
+  },
+  async put (req, res) {
+    try {
+      const song = await Song.update(req.body, {
+        where: {
+          id: req.params.songId
+        }
+      })
+      res.send(req.body)
+    } catch (error) {
+      res.status(500).send({
+        error: 'Something went wrong while updating song'
+      })
+    }
   }
 }
